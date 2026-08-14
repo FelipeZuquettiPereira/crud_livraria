@@ -1,11 +1,16 @@
-Não é recomendado inserir um dado fornecido pelo usuário diretamente no banco de dados, pois possibilita que ele interaja diretamente com o banco sem ter nenhuma permissão ou acesso ao banco de dados.
-
-SQL injection: É uma forma de atacar ou alterar um banco de dados SQL, funciona inserindo um comando em SQL como se fosse um valor da variável.
-
-Prepared Estatement: É um método de segurança, muito útil contra o SQL injection, pois você faz com que o envio do dado para o banco seja revisado e depois alocado na estrutura, isso impede que os comandos sejam validados.
+|*Melhorando a Segurança do CRUD com Prepared Statements*
 
 
-Exemplo de preparação:
+**O que é SQL injection?** 
+
+É uma forma de atacar ou alterar um banco de dados SQL, funciona inserindo um comando em SQL como se fosse um valor da variável.
+
+**O que é Prepared Estatement?**
+    
+É um método de segurança, muito útil contra o SQL injection, pois você faz com que o envio do dado para o banco seja revisado e depois alocado na estrutura, isso impede que os comandos sejam validados.
+
+
+**Exemplo de preparação:**
 
 Código original:
 <?php
@@ -30,20 +35,7 @@ header("Location: ../index.php");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-Código com Prepared Estatement: 
+**Código com Prepared Estatement:** 
 
 <?php
 
@@ -71,7 +63,7 @@ header("Location: ../index.php");
 exit();
 ?>
 
-
+**Explicação das mudanças**
 
 Placeholders (?): A query não concatena mais variáveis diretamente, evitando a execução de códigos maliciosos enviados pelo formulário.
 mysqli_prepare(): Envia o modelo da query ao banco de dados para ser pré-compilado.
